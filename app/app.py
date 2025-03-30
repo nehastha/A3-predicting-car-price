@@ -4,9 +4,9 @@ import pandas as pd
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
-from logisticRegression import LogisticRegression
-from logisticRegression import Ridge
-from logisticRegression import RidgePenalty
+from app.logisticRegression import LogisticRegression
+from app.logisticRegression import Ridge
+from app.logisticRegression import RidgePenalty
 import mlflow
 import os
 
