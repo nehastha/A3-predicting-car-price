@@ -7,6 +7,7 @@ from dash.dependencies import Input, Output, State
 from app.logisticRegression import LogisticRegression
 from app.logisticRegression import Ridge
 from app.logisticRegression import RidgePenalty
+from app.logisticRegression import Normal
 import mlflow
 import os
 
@@ -103,6 +104,8 @@ def prediction(year: float, engine: float, km_driven: float, mileage: float) -> 
     :return: The predicted category of selling price of the car.
     """
     try:
+        # model = pickle.load(open("model/a3_model.model", 'rb'))  # Load the trained model
+        # scaler = pickle.load(open("model/a3_scaler.model", 'rb'))  # Load the scaler
         feature_names = ['year', 'engine', 'km_driven', 'mileage']
         features = {
             'year': [year],
