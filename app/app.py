@@ -115,6 +115,7 @@ def prediction(year: float, engine: float, km_driven: float, mileage: float) -> 
         }
         # loaded_model = pickle.load(open('../model/a3_model.model', 'rb')) # new_model
         scaler = pickle.load(open("model/a3_scaler.model",'rb'))
+        model = pickle.load(open("model/a3_model.model", 'rb'))
 
         # feature_names = ['year', 'engine', 'km_driven', 'mileage']
         # user_sample = np.array([[year, engine, km_driven, mileage]])

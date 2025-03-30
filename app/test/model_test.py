@@ -3,6 +3,8 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from app.app import get_X, prediction
+from app.logisticRegression import Normal
+
 # from app.logisticRegression import LogisticRegression
 
 feature_values = ['2015.0', '1248.0', '60000.0', '19.391961863322244']
