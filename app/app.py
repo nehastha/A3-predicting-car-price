@@ -1,13 +1,19 @@
 import pickle
+import cloudpickle
 import numpy as np
 import pandas as pd
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
-from app.logisticRegression import LogisticRegression
-from app.logisticRegression import Ridge
-from app.logisticRegression import RidgePenalty
-from app.logisticRegression import Normal
+# from app.logisticRegression import LogisticRegression
+# from app.logisticRegression import Ridge
+# from app.logisticRegression import RidgePenalty
+# from app.logisticRegression import Normal
+
+from logisticRegression import LogisticRegression
+from logisticRegression import Ridge
+from logisticRegression import RidgePenalty
+from logisticRegression import Normal
 import mlflow
 import os
 
@@ -115,7 +121,10 @@ def prediction(year: float, engine: float, km_driven: float, mileage: float) -> 
         }
         # loaded_model = pickle.load(open('../model/a3_model.model', 'rb')) # new_model
         scaler = pickle.load(open("model/a3_scaler.model",'rb'))
-        model = pickle.load(open("model/a3_model.model", 'rb'))
+        # model = cloudpickle.load(open("model/a3_model.model", 'rb'))
+        with open("model/a3_model.model", "rb") as f:
+            model = cloudpickle.load(f)
+
 
         # feature_names = ['year', 'engine', 'km_driven', 'mileage']
         # user_sample = np.array([[year, engine, km_driven, mileage]])
