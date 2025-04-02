@@ -1,4 +1,4 @@
-FROM python:3.11.4-bookworm
+FROM python:3.9-bookworm
 
 # Set working directory in the container
 WORKDIR /root
@@ -13,7 +13,7 @@ RUN pip3 install --no-cache-dir \
     scikit-learn \
     joblib\
     mlflow \
-    dash[testing]
+    dash
 
 # Copy the application code
 COPY . /root/

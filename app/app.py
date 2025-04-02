@@ -1,5 +1,3 @@
-import pickle
-import cloudpickle
 import numpy as np
 import pandas as pd
 import dash
@@ -20,22 +18,19 @@ import os
 app = dash.Dash(__name__)
 app.title = "Car Prediction App"
 
-try:
-    # Add any initialization code here if needed
-    # mlflow.set_tracking_uri("http://mlflow.ml.brain.cs.ait.ac.th/")
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
-    # os.environ["MLFLOW_TRACKING_USERNAME"] = "admin"
-    # os.environ["MLFLOW_TRACKING_PASSWORD"] = "password"
-    # os.environ["LOGNAME"] = "st124963-a3"
-    os.environ["LOGNAME"] = "st124963-NehaShrestha"
-    # model_name = "st12-a3-model"
-    model_name = "st124963-a3-model"
-    model_version = 1
 
-    model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/{model_version}")
-    print(f"Model Loaded: {model}")
-except Exception as e:
-    print(f"Error: {str(e)}")
+# Add any initialization code here if needed
+mlflow.set_tracking_uri("https://mlflow.ml.brain.cs.ait.ac.th/")
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")
+os.environ["MLFLOW_TRACKING_USERNAME"] = "admin"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "password"
+os.environ["LOGNAME"] = "st124963-a3"
+
+# model_name = "st12-a3-model"
+model_name = "st124963-a3-model"
+model_version = 1
+
+model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/{model_version}")
 
 app.layout = html.Div([
     html.H1("Car Selling Price Prediction", style={'text-align': 'center', 'color': '#4a4a4a', 'margin-bottom': '20px'}),
@@ -120,10 +115,10 @@ def prediction(year: float, engine: float, km_driven: float, mileage: float) -> 
             'mileage':[mileage]
         }
         # loaded_model = pickle.load(open('../model/a3_model.model', 'rb')) # new_model
-        scaler = pickle.load(open("model/a3_scaler.model",'rb'))
+        # scaler = pickle.load(open("model/a3_scaler.model",'rb'))
         # model = cloudpickle.load(open("model/a3_model.model", 'rb'))
-        with open("model/a3_model.model", "rb") as f:
-            model = cloudpickle.load(f)
+        # with open("model/a3_model.model", "rb") as f:
+            # model = cloudpickle.load(f)
 
 
         # feature_names = ['year', 'engine', 'km_driven', 'mileage']
@@ -131,7 +126,7 @@ def prediction(year: float, engine: float, km_driven: float, mileage: float) -> 
         # user_sample_df = pd.DataFrame(user_sample, columns=feature_names)
         # prediction = loaded_model.predict(user_sample_df)
         X = pd.DataFrame(features, index=[0])
-        X[feature_names]= scaler.transform(X[feature_names])
+        # X[feature_names]= scaler.transform(X[feature_names])
         X = X.to_numpy()
         prediction = model.predict(X)
         

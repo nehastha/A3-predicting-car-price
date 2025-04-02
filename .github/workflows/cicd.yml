@@ -50,7 +50,7 @@ jobs:
     - name: Deploy to ml2025
       run: |
         ssh -v st124963@ml2023 << 'EOF'
-        cd st124963/
+        cd st124963A3/
         docker compose down
         docker compose pull 
         docker compose up -d 
