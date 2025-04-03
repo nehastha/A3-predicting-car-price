@@ -29,14 +29,16 @@ app.layout = html.Div([
     # Instructions Section
     html.Div([
         html.H3("Instructions:", style={'color': '#2c3e50', 'margin-bottom': '10px'}),
-        html.Ul([
-            html.Li("Enter the year of manufacture for the car."),
-            html.Li("Specify the engine capacity in CC."),
-            html.Li("Provide the total kilometers driven."),
-            html.Li("Enter the car's mileage in km/l."),
-            html.Li("If nothing is provided, default values will be used."),
-            html.Li("Using the model, it will predict if the car is cheap, moderate, expensive or very expensive"),
-        ], style={'margin-left': '20px', 'color': '#34495e', 'font-size': '16px'}),
+        html.P("Please enter the year of manufacture for the car, the engine capacity in CC, the total kilometers driven, the total kilometers driven and the car's mileage in km/l. Using the model, it will predict if the car is cheap, moderate, expensive or very expensive"),
+        html.P("** Note: If nothing is provided, default values will be used."),
+        # html.Ul([
+        #     html.Li("Enter the year of manufacture for the car."),
+        #     html.Li("Specify the engine capacity in CC."),
+        #     html.Li("Provide the total kilometers driven."),
+        #     html.Li("Enter the car's mileage in km/l."),
+        #     html.Li("If nothing is provided, default values will be used."),
+        #     html.Li("Using the model, it will predict if the car is cheap, moderate, expensive or very expensive"),
+        # ], style={'margin-left': '20px', 'color': '#34495e', 'font-size': '16px'}),
     ], style={'padding': '15px', 'border': '1px solid #bdc3c7', 'border-radius': '5px', 'background-color': '#ecf0f1', 'margin-bottom': '20px'}),
     
     # Form Section
