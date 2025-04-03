@@ -220,4 +220,4 @@ if __name__ == '__main__':
     # before running the app, downloading the model from mlflow
     # from utils import load_mlflow
     # load_mlflow(stage="Production")
-    app.run(host='0.0.0.0', port = 8050, debug=True)
+    app.run(host='0.0.0.0', port = 80, debug=True)
