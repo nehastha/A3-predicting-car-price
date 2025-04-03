@@ -19,4 +19,4 @@ python app/app.py
 #### Screenshots
 ![mlflow](./screenshots/mlflow.png)
 
-![running application](./screenshots/mlflow.png)
+![running application](./screenshots/application.png)
